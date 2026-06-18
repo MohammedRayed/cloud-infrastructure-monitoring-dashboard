@@ -1,0 +1,17 @@
+services:
+  test-service:
+    image: nginx:alpine
+    container_name: monitoring-test-service
+    ports:
+      - "8080:80"
+    networks:
+      - monitoring-network
+    restart: unless-stopped
+
+networks:
+  monitoring-network:
+    driver: bridge
+
+volumes:
+  prometheus-data:
+  grafana-data:
