@@ -69,8 +69,8 @@ Prometheus targets page:
 http://localhost:9090/targets
 
 Expected targets:
-prometheus      UP
-node-exporter   UP
+- prometheus      UP
+- node-exporter   UP
 
 ## Troubleshooting Notes
 
