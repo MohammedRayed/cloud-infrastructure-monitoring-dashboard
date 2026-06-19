@@ -63,8 +63,8 @@ Prometheus UI:
 
 http://localhost:9090
 
-Node Exporter metrics:
-- http://localhost:9100/metrics
+Node Exporter metrics: 
+http://localhost:9100/metrics
 
 Prometheus targets page:
 http://localhost:9090/targets
