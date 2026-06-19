@@ -61,7 +61,6 @@ Added Prometheus and Node Exporter to begin collecting Linux/server infrastructu
 
 Prometheus UI:
 
-```text
 http://localhost:9090
 
 Node Exporter metrics:
