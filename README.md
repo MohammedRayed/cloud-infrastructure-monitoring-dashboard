@@ -60,7 +60,6 @@ Added Prometheus and Node Exporter to begin collecting Linux/server infrastructu
 ### Day 2 Verification
 
 Prometheus UI:
-
 http://localhost:9090
 
 Node Exporter metrics: 
