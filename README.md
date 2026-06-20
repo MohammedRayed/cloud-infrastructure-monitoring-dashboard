@@ -88,3 +88,25 @@ If a target shows DOWN in Prometheus, check:
 - The exporter port is correct
 - Prometheus logs show whether the scrape failed
 ```
+
+## Day 3 Progress
+
+Added cAdvisor to monitor Docker container metrics.
+
+### What was added
+
+- cAdvisor container for Docker container monitoring
+- Prometheus scrape job for cAdvisor
+- Container CPU metrics
+- Container memory metrics
+- Container network metrics
+- Container filesystem metrics
+- cAdvisor web UI
+- cAdvisor `/metrics` endpoint
+
+### Day 3 Verification
+
+cAdvisor UI:
+
+```text
+http://localhost:8081
