@@ -1,112 +1,121 @@
 # Cloud Infrastructure Monitoring Dashboard
 
-A production-style monitoring dashboard built with Docker, Prometheus, Grafana, Node Exporter, cAdvisor, Nginx, and Spring Boot Actuator.
+## Description
 
-## Project Goal
+Cloud Infrastructure Monitoring Dashboard is a containerized monitoring platform used to track the health and performance of infrastructure, Docker containers, and backend applications.
 
-The goal of this project is to monitor Linux server metrics, Docker container metrics, and application health using a cloud/devops-style monitoring stack.
+The project uses Prometheus to collect metrics, Grafana to display dashboards, Node Exporter to monitor Linux server resources, and cAdvisor to monitor Docker containers. The stack can run locally using Docker Compose and can also be deployed to AWS EC2 using Terraform.
 
-This project demonstrates practical skills in:
+This project demonstrates real-world cloud and DevOps skills such as infrastructure monitoring, container observability, AWS deployment, infrastructure as code, and dashboard-based system troubleshooting.
 
-- Docker
-- Docker Compose
-- Linux server monitoring
-- Prometheus metrics collection
-- Grafana dashboards
-- Container monitoring
-- Application health checks
-- Nginx reverse proxy
-- Cloud deployment concepts
-- Production troubleshooting
+---
 
-## Tech Stack
+## Technologies and Skills Used
 
-- Docker
-- Docker Compose
-- Prometheus
-- Grafana
-- Node Exporter
-- cAdvisor
-- Spring Boot Actuator
-- Nginx
-- Linux
-- AWS EC2
+* **AWS EC2** – Deployed the monitoring stack to a cloud server
+* **Terraform** – Provisioned AWS infrastructure using infrastructure as code
+* **Docker** – Containerized monitoring services
+* **Docker Compose** – Managed multiple services in one stack
+* **Prometheus** – Collected and stored infrastructure and application metrics
+* **Grafana** – Created dashboards to visualize system health and performance
+* **Node Exporter** – Collected Linux host metrics such as CPU, memory, disk, and network usage
+* **cAdvisor** – Collected Docker container metrics such as CPU usage, memory usage, and network activity
+* **Spring Boot Actuator** – Exposed backend application health and JVM metrics
+* **Micrometer Prometheus** – Exported Spring Boot metrics in Prometheus format
+* **Linux/Ubuntu** – Managed and deployed services on a Linux server
+* **Git/GitHub** – Version-controlled project files, configurations, and documentation
+* **AWS Security Groups** – Restricted access to SSH, Grafana, and Prometheus ports
 
-## Day 1 Progress
+---
 
-- Created project repository
-- Added Docker Compose base
-- Created monitoring network
-- Created persistent Docker volumes
-- Added starter folder structure
-- Added placeholder Prometheus configuration
-- Verified Docker Compose with a test Nginx container
+## Services
 
-## Day 2 Progress
+### Prometheus
 
-Added Prometheus and Node Exporter to begin collecting Linux/server infrastructure metrics.
+Prometheus collects metrics from the monitoring services and stores them as time-series data. It scrapes metrics from Node Exporter, cAdvisor, Prometheus itself, and the Spring Boot Actuator endpoint.
 
-### What was added
+Prometheus is used to check whether services are running, inspect raw metrics, and provide data to Grafana dashboards.
 
-- Prometheus container for metrics collection
-- Node Exporter container for Linux/server metrics
-- Docker Compose service definitions
-- Shared Docker monitoring network
-- Persistent Prometheus volume
-- Prometheus scrape configuration
-- Verified Prometheus target health
-- Queried CPU, memory, filesystem, and network metrics
+---
 
-### Day 2 Verification
+### Grafana
 
-Prometheus UI:
-http://localhost:9090
+Grafana visualizes the metrics collected by Prometheus. It displays dashboards for infrastructure health, container performance, memory usage, CPU usage, network traffic, and application metrics.
 
-Node Exporter metrics: 
-http://localhost:9100/metrics
+Grafana makes it easier to understand system performance without reading raw metric data manually.
 
-Prometheus targets page:
-http://localhost:9090/targets
+---
 
-Expected targets:
-- prometheus      UP
-- node-exporter   UP
+### Node Exporter
 
-## Troubleshooting Notes
+Node Exporter collects Linux server metrics from the host machine. It provides visibility into system-level resources such as CPU, memory, disk usage, filesystem usage, and network activity.
 
-### Docker daemon not running
+In this project, Node Exporter helps monitor the health of the EC2 instance or local Linux environment.
 
-During Day 1, Docker Compose failed because Docker Desktop was not running. The fix was to open Docker Desktop and wait for the Docker engine to start.
+---
 
-### Prometheus target not UP
+### cAdvisor
 
-If a target shows DOWN in Prometheus, check:
+cAdvisor monitors Docker containers and exposes container-level metrics. It tracks container CPU usage, memory usage, network traffic, and filesystem activity.
 
-- The container is running with `docker ps`
-- The service name in `prometheus.yml` matches the Docker Compose service name
-- Both containers are on the same Docker network
-- The exporter port is correct
-- Prometheus logs show whether the scrape failed
-```
+In this project, cAdvisor helps monitor the performance of containers running inside the Docker Compose stack.
 
-## Day 3 Progress
+---
 
-Added cAdvisor to monitor Docker container metrics.
+### Spring Boot Actuator
 
-### What was added
+Spring Boot Actuator exposes application health and performance metrics from the backend application. These metrics include application health, JVM memory usage, HTTP request counts, process CPU usage, and application readiness.
 
-- cAdvisor container for Docker container monitoring
-- Prometheus scrape job for cAdvisor
-- Container CPU metrics
-- Container memory metrics
-- Container network metrics
-- Container filesystem metrics
-- cAdvisor web UI
-- cAdvisor `/metrics` endpoint
+In this project, Actuator is used to demonstrate application-level monitoring alongside infrastructure and container monitoring.
 
-### Day 3 Verification
+---
 
-cAdvisor UI:
+### Terraform
 
-```text
-http://localhost:8081
+Terraform provisions the AWS infrastructure required to run the monitoring stack. It creates the EC2 instance, security group rules, SSH key pair reference, and user data script for installing Docker.
+
+Terraform makes the cloud infrastructure repeatable, version-controlled, and easier to recreate.
+
+---
+
+### AWS EC2
+
+AWS EC2 hosts the monitoring stack in the cloud. The EC2 instance runs Ubuntu Linux and uses Docker Compose to run Prometheus, Grafana, Node Exporter, and cAdvisor.
+
+This demonstrates how the monitoring platform can be deployed outside of a local development environment.
+
+---
+
+### AWS Security Groups
+
+AWS Security Groups control inbound access to the EC2 instance. In this project, security group rules are used to restrict access to SSH, Grafana, Prometheus, cAdvisor, and Node Exporter ports.
+
+This helps demonstrate basic cloud security practices by limiting access to trusted IP addresses.
+
+---
+
+## Screenshots
+
+### Grafana Dashboard
+
+![Grafana Dashboard](docs/screenshots/grafana-dashboard.png)
+
+### Prometheus Targets
+
+![Prometheus Targets](docs/screenshots/prometheus-targets.png)
+
+### Docker Compose Running on AWS EC2
+
+![Docker Compose on EC2](docs/screenshots/docker-compose-ps-ec2.png)
+
+### AWS EC2 Instance
+
+![AWS EC2 Instance](docs/screenshots/aws-ec2-running.png)
+
+### AWS Security Group Rules
+
+![AWS Security Group](docs/screenshots/aws-security-group.png)
+
+### Terraform Apply
+
+![Terraform Apply](docs/screenshots/terraform-apply.png)
