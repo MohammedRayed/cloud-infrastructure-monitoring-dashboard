@@ -18,3 +18,12 @@ docker-compose.override.yml
 
 # Temporary files
 tmp/
+
+# Terraform local files
+**/.terraform/
+**/.terraform.lock.hcl
+**/terraform.tfstate
+**/terraform.tfstate.*
+**/terraform.tfvars
+**/crash.log
+**/crash.*.log
