@@ -98,24 +98,25 @@ This helps demonstrate basic cloud security practices by limiting access to trus
 
 ### Grafana Dashboard
 
-![Grafana Dashboard](docs/screenshots/grafana-dashboard.png)
+![Grafana Dashboard](Screenshots/Grafana_EC2_Dashboard.png)
 
 ### Prometheus Targets
 
-![Prometheus Targets](docs/screenshots/prometheus-targets.png)
+![Prometheus Targets](Screenshots/Prometheus_Targets.png)
 
 ### Docker Compose Running on AWS EC2
 
-![Docker Compose on EC2](docs/screenshots/docker-compose-ps-ec2.png)
+![Docker Compose on EC2](Screenshots/Docker_Compose_Stack.png)
+![Docker Compose on EC2](Screenshots/DockerPSContainers.png)
 
 ### AWS EC2 Instance
 
-![AWS EC2 Instance](docs/screenshots/aws-ec2-running.png)
+![AWS EC2 Instance](Screenshots/AWS_Console_E2C.png)
 
 ### AWS Security Group Rules
 
-![AWS Security Group](docs/screenshots/aws-security-group.png)
+![AWS Security Group](Screenshots/AWS_E2C_Security_Group_Rules.png)
 
 ### Terraform Apply
 
-![Terraform Apply](docs/screenshots/terraform-apply.png)
+![Terraform Apply](Screenshots/Terraform_Output.png)
